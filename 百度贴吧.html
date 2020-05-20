@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>百度贴吧-全球最大的中文社区</title>
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="ys.css">
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div class="doc">
+        <div class="nav">
+            <div class="nav-right" style="">
+                <ul>
+                    <li><a href="">百度首页</a></li>
+                    <li ><a href="">测试用户</a></li>
+                    <li><a href="">消息</a></li>
+                    <li><a href="">会员</a></li>
+                    <li><a href="">更多</a></li>
+                </ul>
+            </div>
+            <div class="nav-left" style="">
+                <ul>
+                    <li><a href="">网页</a></li>
+                    <li><a href="">新闻</a></li>
+                    <li><a href="">贴吧</a></li>
+                    <li><a href="">知道</a></li>
+                    <li><a href="">视频</a></li>
+                    <li><a href="">音乐</a></li>
+                    <li><a href="">图片</a></li>
+                    <li><a href="">地图</a></li>
+                    <li><a href="">文库</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="inquiry">
+            <img src="pict/3.png">
+            <input type="text" name="chaxun">
+            <div class="cx-jrtb" v-on:click="dianji">进入贴吧</div>
+            <div class="cx-qbss">全吧搜索</div>
+            <a href="">高级搜索</a>
+        </div>
+        <div class="lbtt">
+            <div>
+                <div class="container" @mouseenter="stop" @mouseleave="start">
+                    <div>
+                        <div class="wrap" v-for="(lujing,i) in imgs" v-show="i==mark" :key="i">
+                            <img :src="lujing">
+                        </div>
+                    </div>
+                </div>                 
+                <img src="pict/贴吧数量.png">
+            </div>
+            <div class="anniu">
+                <div class="btnleft btn" @click="previous">&lt;</div>
+                <div class="dots">
+                    <span v-for="(a,i) in imgs" :class="{'on':i==mark}" @click="change(i)"></span>
+                </div>
+                <div class="btnright btn" @click="next">&gt;</div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="left">
+                <div class="wztb clearfix">
+                    <h1>我在贴吧</h1>
+                    <div>
+                        <img src="pict/tx.png">
+                        <div>
+                            <div class="yder">
+                                <a href=""><img src="pict/hg.png"></a>
+                                <a href="">测试用户<img class="txbq" src="pict/1.png"></a>
+                            </div>
+                            <div>
+                                <a href=""><img src="pict/jd.png">0</a>
+                                <a href="">[获取]</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="agdb">
+                    <div class="title">
+                        <div><p>爱逛的吧</p><span class="chilun"></span><span class="yjqd"></span></div>
+                    </div>
+                    <div>
+                        <ul>
+                            <li><a href="">电影<span></span></a></li>
+                            <li><a href="">音乐<span></span></a></li>
+                            <li><a href="">慢跑<span></span></a></li>
+                            <li><a href="">有氧<span></span></a></li>
+                            <li><a href="">广州<span></span></a></li>
+                            <li><a href="">抗压<span></span></a></li>
+                            <li><a href="">李毅<span></span></a></li>
+                            <li><a href="">孙吧<span></span></a></li>
+                        </ul>
+                        <div class="gd">查看更多
+                            <div class="gdtc">
+                                <div><p>爱逛的吧</p></div>
+                                <div>
+                                    <ul>
+                                        <li>游戏</li>
+                                        <li>显卡</li>
+                                        <li>摄影</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wdyx">
+                    <div>
+                        <h1>我的游戏</h1>
+                        <img src="pict/lw.png">
+                    </div>
+                    <div><p>热玩游戏榜，寻找你的她</p></div>
+                </div>
+                <div class="tbjxzt">
+                    <h1>贴吧精选专题</h1>
+                    <a href="">高校精选专题</a>
+                </div>
+                <div class="tbfl">
+                    <h1>贴吧分类</h1>
+                    <div class="gap"></div>
+                    <div class="ylmx fl">
+                        <div><span></span>娱乐明星</div>
+                        <div>
+                            <ul>
+                                <li>港台东南亚明星</li>
+                                <li>内地明星</li>
+                                <li>韩国明星</li>
+                                <li>日本明星</li>
+                                <li>时尚人物</li>
+                            </ul>
+                        </div>
+                        <div class="ylmx-item">
+                            <div>
+                                <p>娱乐明星</p>
+                                <div>
+                                    <ul class="q1">
+                                        <li>港台东南亚明星</li>
+                                        <li>内地明星</li>
+                                        <li>韩国明星</li>
+                                        <li>日本明星</li>
+                                        <li>时尚人物</li>
+                                        <li>欧美明星</li>
+                                        <li>主持人</li>
+                                        <li>其它娱乐明星</li>
+                                        <li>娱乐明星话题</li>
+                                        <li>导演</li>
+                                        <li>戏曲曲艺明星</li>
+                                        <li>2020中国好声音</li>
+                                        <li>音乐制作人</li>
+                                        <li>其他粉丝组织</li>
+                                        <li>明星官方吧</li>
+                                        <li>网络名人</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <span></span>
+                                    <p>推荐吧</p>
+                                    <ul class="q2">
+                                        <li>中国好声音</li>
+                                        <li>快乐男声</li>
+                                        <li>李代沫</li>
+                                        <li>exo</li>
+                                        <li>陈乔恩</li>
+                                        <li>姚贝娜</li>
+                                        <li>鹿晗</li>
+                                        <li>李宇春</li>
+                                        <li>刘诗诗</li>
+                                        <li>吴奇隆</li>
+                                        <li>孙笑川</li>
+                                        <li>障碍与</li>
+                                        <li>张根</li>
+                                        <li>林夕</li>
+                                        <li>大S</li>
+                                        <li>小S</li>
+                                        <li>男声学院</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <img src="pict/mingxing0729.png">
+                        </div>
+                    </div>
+                    <div class="azy fl">
+                        <div><span></span>爱综艺</div>
+                        <div>
+                            <ul>
+                                <li>内地综艺</li>
+                                <li>台湾综艺</li>
+                                <li>韩国综艺</li>
+                                <li>时尚</li>
+                                <li>生活服务</li>
+                                <li>体育运动</li>
+                            </ul>
+                        </div>
+                        <div class="ylmx-item">
+                            <div>
+                                <p>爱综艺</p>
+                                <div>
+                                    <ul class="q1">
+                                        <li>内地综艺</li>
+                                        <li>台湾综艺</li>
+                                        <li>韩国综艺</li>
+                                        <li>生活服务</li>
+                                        <li>体育运动</li>
+                                        <li>财经职场</li>
+                                        <li>新闻资讯</li>
+                                        <li>电视台及频道</li>
+                                        <li>音乐文艺</li>
+                                        <li>其他节目及话题</li>
+                                        <li>科教记录</li>
+                                        <li>少儿教育</li>
+                                        <li>广播电台</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <span></span>
+                                    <p>推荐吧</p>
+                                    <ul class="q2">
+                                        <li>快乐大本营</li>
+                                        <li>我们15个</li>
+                                        <li>大学生了没</li>
+                                        <li>中国好男儿</li>
+                                        <li>非诚勿扰</li>
+                                        <li>天天向上</li>
+                                        <li>我爱黑涩会</li>
+                                        <li>康熙来了</li>
+                                        <li>打鱼晒网</li>
+                                        <li>跑男</li>
+                                        <li>极限挑战</li>
+                                        <li>湖南卫视</li>
+                                        <li>tvb</li>
+                                        <li>江苏卫视</li>
+                                        <li>流言终结者</li>
+                                        <li>空中浩劫</li>
+                                        <li>职来职往</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ajk fl">
+                        <div><span></span>爱剧狂</div>
+                        <div>
+                            <ul>
+                                <li>韩国电视剧</li>
+                                <li>香港电视剧</li>
+                                <li>美剧</li>
+                                <li>日本电视剧</li>
+                                <li>内地电视剧</li>
+                            </ul>
+                        </div>
+                        <div class="ylmx-item">
+                            <div>
+                                <p>爱剧狂</p>
+                                <div>
+                                    <ul class="q1">
+                                        <li>韩国电视剧</li>
+                                        <li>香港电视剧</li>
+                                        <li>美剧</li>
+                                        <li>日本电视剧</li>
+                                        <li>内地电视剧</li>
+                                        <li>台湾电视剧</li>
+                                        <li>东南亚电视剧</li>
+                                        <li>其它地区电视剧</li>
+                                        <li>电视剧角色</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <span></span>
+                                    <p>推荐吧</p>
+                                    <ul class="q2">
+                                        <li>最美时光</li>
+                                        <li>Monstar</li>
+                                        <li>庆余年</li>
+                                        <li>韩版想你</li>
+                                        <li>听见你的声音</li>
+                                        <li>冲上云霄2</li>
+                                        <li>步步惊心</li>
+                                        <li>生活大爆炸</li>
+                                        <li>越狱</li>
+                                        <li>冰与火之歌</li>
+                                        <li>南方公园</li>
+                                        <li>绝命毒师</li>
+                                        <li>破产姐妹</li>
+                                        <li>陈情令</li>
+                                        <li>我是余欢水</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ady fl">
+                        <div><span></span>爱电影</div>
+                        <div>
+                            <ul>
+                                <li>香港电影</li>
+                                <li>欧美电影</li>
+                                <li>内地电影</li>
+                                <li>韩国电影</li>
+                                <li>日本电影</li>
+                                <li>台湾电影</li>
+                            </ul>
+                        </div>
+                        <div class="ylmx-item">
+                            <div>
+                                <p>爱电影</p>
+                                <div>
+                                    <ul class="q1">
+                                        <li>香港电影</li>
+                                        <li>欧美电影</li>
+                                        <li>内地电影</li>
+                                        <li>韩国电影</li>
+                                        <li>日本电影</li>
+                                        <li>台湾电影</li>
+                                        <li>电影话题</li>
+                                        <li>东南亚电影</li>
+                                        <li>其他地区电影</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <span></span>
+                                    <p>推荐吧</p>
+                                    <ul class="q2">
+                                        <li>电影票房</li>
+                                        <li>微电影</li>
+                                        <li>影视同人</li>
+                                        <li>大众电影</li>
+                                        <li>奥斯卡</li>
+                                        <li>科幻片</li>
+                                        <li>经典电影</li>
+                                        <li>豆瓣高分</li>
+                                        <li>图解电影</li>
+                                        <li>小清新电影</li>
+                                        <li>动漫剧场版</li>
+                                        <li>纪录片</li>
+                                        <li>好莱坞</li>
+                                        <li>悬疑片</li>
+                                        <li>霍比特人</li>
+                                        <li>魔界</li>
+                                        <li>星际穿越</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ty fl">
+                        <div><span></span>体育</div>
+                        <div>
+                            <ul>
+                                <li>足球</li>
+                                <li>篮球</li>
+                                <li>NBA</li>
+                                <li>CBA</li>
+                                <li>乒乓球</li>
+                                <li>网球</li>
+                                <li>舞蹈</li>
+                                <li>健身</li>
+                            </ul>
+                        </div>
+                        <div class="ylmx-item">
+                            <div>
+                                <p>体育</p>
+                                <div>
+                                    <ul class="q1">
+                                        <li>足球</li>
+                                        <li>篮球</li>
+                                        <li>NBA</li>
+                                        <li>CBA</li>
+                                        <li>乒乓球</li>
+                                        <li>网球</li>
+                                        <li>舞蹈</li>
+                                        <li>健身</li>
+                                        <li>羽毛球</li>
+                                        <li>F1</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <span></span>
+                                    <p>推荐吧</p>
+                                    <ul class="q2">
+                                        <li>世界杯</li>
+                                        <li>阿根廷</li>
+                                        <li>巴西队</li>
+                                        <li>西班牙足球</li>
+                                        <li>荷兰足球队</li>
+                                        <li>英格兰</li>
+                                        <li>意大利国家队</li>
+                                        <li>葡萄牙</li>
+                                        <li>希腊队</li>
+                                        <li>英格兰足球</li>
+                                        <li>法国队</li>
+                                        <li>墨西哥足球</li>
+                                        <li>德国队</li>
+                                        <li>俄罗斯队</li>
+                                        <li>比利时队</li>
+                                        <li>巴西世界杯吧</li>
+                                        <li>美国足球</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="xs fl">
+                        <div><span></span>小说</div>
+                        <div>
+                            <ul>
+                                <li>奇幻</li>
+                                <li>言情</li>
+                                <li>灵异</li>
+                                <li>穿越</li>
+                                <li>连载</li>
+                                <li>修真</li>
+                                <li>历史</li>
+                                <li>架空文</li>
+                            </ul>
+                        </div>
+                        <div class="ylmx-item">
+                            <div>
+                                <p>小说</p>
+                                <div>
+                                    <ul class="q1">
+                                        <li>奇幻</li>
+                                        <li>言情</li>
+                                        <li>灵异</li>
+                                        <li>穿越</li>
+                                        <li>连载</li>
+                                        <li>修真</li>
+                                        <li>历史</li>
+                                        <li>架空文</li>
+                                        <li>小说推荐</li>
+                                        <li>科幻</li>
+                                        <li>书评</li>
+                                        <li>游戏改编</li>
+                                        <li>重生文</li>
+                                        <li>后宫</li>
+                                        <li>清宫</li>
+                                        <li>YY文</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <span></span>
+                                    <p>推荐吧</p>
+                                    <ul class="q2">
+                                        <li>盗墓笔记</li>
+                                        <li>我们是兄弟</li>
+                                        <li>步步惊心</li>
+                                        <li>三体</li>
+                                        <li>朝花夕拾</li>
+                                        <li>围城</li>
+                                        <li>骆驼祥子</li>
+                                        <li>子不语</li>
+                                        <li>宰执天下</li>
+                                        <li>张起灵</li>
+                                        <li>花千骨</li>
+                                        <li>解语花</li>
+                                        <li>笑傲江湖</li>
+                                        <li>医道官途</li>
+                                        <li>穿越小说</li>
+                                        <li>唐砖</li>
+                                        <li>无限曙光</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shj fl">
+                        <div><span></span>生活家</div>
+                        <div>
+                            <ul>
+                                <li>小而美</li>
+                                <li>DIY</li>
+                                <li>美食</li>
+                                <li>摄影</li>
+                                <li>旅行</li>
+                                <li>变美</li>
+                                <li>留学移民</li>
+                                <li>文玩</li>
+                            </ul>
+                        </div>
+                        <div class="ylmx-item">
+                            <div>
+                                <p>生活家</p>
+                                <div>
+                                    <ul class="q1">
+                                        <li>小而美</li>
+                                        <li>DIY</li>
+                                        <li>美食</li>
+                                        <li>摄影</li>
+                                        <li>旅行</li>
+                                        <li>变美</li>
+                                        <li>留学移民</li>
+                                        <li>文玩</li>
+                                        <li>悠闲</li>
+                                        <li>游戏日</li>
+                                        <li>多肉植物</li>
+                                        <li>桌面摆件</li>
+                                        <li>甜品</li>
+                                        <li>下午茶</li>
+                                        <li>家居</li>
+                                        <li>午睡</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <span></span>
+                                    <p>推荐吧</p>
+                                    <ul class="q2">
+                                        <li>多浆植物</li>
+                                        <li>咖啡</li>
+                                        <li>单反</li>
+                                        <li>芭蕾</li>
+                                        <li>烘焙</li>
+                                        <li>美食</li>
+                                        <li>蒸汽朋克</li>
+                                        <li>手绘</li>
+                                        <li>旅行</li>
+                                        <li>死飞</li>
+                                        <li>唯美意境</li>
+                                        <li>隐居</li>
+                                        <li>复工</li>
+                                        <li>明信片</li>
+                                        <li>手工</li>
+                                        <li>装修日记</li>
+                                        <li>猫咪</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="xq fl">
+                        <div><span></span>闲趣</div>
+                        <div>
+                            <ul>
+                                <li>萌宠</li>
+                                <li>萝莉</li>
+                                <li>重口味</li>
+                                <li>吐槽</li>
+                                <li>恐怖</li>
+                                <li>星座</li>
+                                <li>爆料</li>
+                                <li>猫星人</li>
+                            </ul>
+                        </div>
+                        <div class="ylmx-item">
+                            <div>
+                                <p>闲趣</p>
+                                <div>
+                                    <ul class="q1">
+                                        <li>萌宠</li>
+                                        <li>萝莉</li>
+                                        <li>重口味</li>
+                                        <li>吐槽</li>
+                                        <li>恐怖</li>
+                                        <li>星座</li>
+                                        <li>爆料</li>
+                                        <li>猫星人</li>
+                                        <li>汪星人</li>
+                                        <li>同年</li>
+                                        <li>内涵</li>
+                                        <li>正太</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <span></span>
+                                    <p>推荐吧</p>
+                                    <ul class="q2">
+                                        <li>猫</li>
+                                        <li>网红达人</li>
+                                        <li>娃娃脸</li>
+                                        <li>处女座</li>
+                                        <li>萌妹子</li>
+                                        <li>帅哥</li>
+                                        <li>哈士奇</li>
+                                        <li>甜美</li>
+                                        <li>爆料</li>
+                                        <li>扒皮</li>
+                                        <li>仓鼠</li>
+                                        <li>抗压吧</li>
+                                        <li>高校</li>
+                                        <li>冷笑话</li>
+                                        <li>可爱正太</li>
+                                        <li>十二星座</li>
+                                        <li>塔罗牌</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="yx fl">
+                        <div><span></span>游戏</div>
+                        <div>
+                            <ul>
+                                <li>客户端网游</li>
+                                <li>桌游</li>
+                                <li>游戏角色</li>
+                                <li>网页版网游</li>
+                                <li>手机游戏</li>
+                                <li>小游戏</li>
+                            </ul>
+                        </div>
+                        <div class="ylmx-item">
+                            <div>
+                                <p>游戏</p>
+                                <div>
+                                    <ul class="q1">
+                                        <li>客户端网游</li>
+                                        <li>桌游</li>
+                                        <li>游戏角色</li>
+                                        <li>网页版网游</li>
+                                        <li>手机游戏</li>
+                                        <li>小游戏</li>
+                                        <li>单机游戏</li>
+                                        <li>掌机游戏</li>
+                                        <li>电视游戏</li>
+                                        <li>电子竞技</li>
+                                        <li>直播平台</li>
+                                        <li>主机及单机游戏</li>
+                                        <li>游戏平台</li>
+                                        <li>游戏交易</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <span></span>
+                                    <p>推荐吧</p>
+                                    <ul class="q2">
+                                        <li>剑灵</li>
+                                        <li>坦克世界</li>
+                                        <li>英雄联盟</li>
+                                        <li>DOTA2</li>
+                                        <li>炉石传说</li>
+                                        <li>梦幻西游</li>
+                                        <li>饥荒</li>
+                                        <li>我的世界</li>
+                                        <li>守望先锋</li>
+                                        <li>传奇</li>
+                                        <li>魔兽世界</li>
+                                        <li>冒险岛</li>
+                                        <li>泡泡堂</li>
+                                        <li>跑跑卡丁车</li>
+                                        <li>CSGO</li>
+                                        <li>GTA5</li>
+                                        <li>红色警戒2</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gd">查看全部</div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="right-nav">
+                    <div>
+                        <h1>推荐的吧</h1>
+                        <div class="tbxq">
+                            <div>
+                                <a href=""><img src="pict/文学.jpg"></a>
+                            </div>
+                            <div>
+                                <div><span class="tj"></span><a>文学吧</a></div>
+                                <p class="jj">读书使人进步</p>
+                                <div><span class="rs"></span>1133778<span class="pl"></span>8504203</div>
+                            </div>
+                        </div>
+                        <div class="tbxq">
+                            <div>
+                                <a href=""><img src="pict/武汉2.jpg"></a>
+                            </div>
+                            <div>
+                                <div><span class="tj"></span><a>武汉吧</a></div>
+                                <p class="jj">武汉加油！中国加油！</p>
+                                <div><span class="rs"></span>1941220<span class="pl"></span>40332176</div>
+                            </div>                            
+                        </div>
+                    </div>
+                    <div>
+                        <p>阅读经典文学名著，提高自身文化修养</p>
+                        <div class="tblb">
+                            <ul>
+                                <li>
+                                    <a href="">
+                                        <div>
+                                            <img src="pict/哈姆雷特.jpg">
+                                            <div>
+                                                <p>哈姆雷特吧</p>
+                                                <p><span class="rs"></span>12999</p>                                            
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <div>
+                                            <img src="pict/红与黑.jpg">
+                                            <div>
+                                                <p>红与黑吧</p>
+                                                <p><span class="rs"></span>32131</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <div>
+                                            <img src="pict/小王子.jpg">
+                                            <div>
+                                                <p>小王子吧</p>
+                                                <p><span class="rs"></span>13741</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <div>
+                                            <img src="pict/世说新语.jpg">
+                                            <div>
+                                                <p>世说新语吧</p>
+                                                <p><span class="rs"></span>45961</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-main">
+                    <div class="main">
+                        <div class="gg">
+                            <div class="tuiguang">
+                                <h1>贴吧游戏</h1>
+                                <img src="pict/tbdj.jpeg">
+                                <div>
+                                    <p><a>CSGO</a></p>
+                                    <p><a>英雄联盟</a></p>
+                                    <p><a>Dota2</a></p>
+                                    <p><a>王者荣耀</a></p>
+                                    <p><a>单机游戏</a></p>
+                                </div>
+                            </div>
+                            <div class="tuiguang">
+                                <h1>娱乐中心</h1>
+                                <img src="pict/sszb.jpg">
+                                <div>
+                                    <p><a>食神争霸</a></p>
+                                    <p><a>斗地主</a></p>
+                                    <p><a>德州扑克</a></p>
+                                    <p><a>三国杀</a></p>
+                                    <p><a>手机评测</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tiezi">
+                            <div>
+                                <p><a>热门动态</a></p>
+                                <p><a>个性动态</a></p>
+                            </div>
+                            <ul>
+                                <li>
+                                   <h1><a>一击男吧</a></h1> 
+                                   <div class="bt">
+                                       <p><a>【动漫】《一拳超人》将拍好莱坞真人电影</a></p>
+                                       <div>
+                                            <p>870</p>
+                                            <p></p>
+                                            <p></p>    
+                                       </div>                                       
+                                   </div>
+                                   <p>《一拳超人》好莱坞真人电影化决定！</p>
+                                   <div class="tp">
+                                       <div style="background: url(pict/tz01.jpg);background-size: cover;"></div>
+                                       <div style="background: url(pict/tz02.jpg);background-size: cover;"></div>
+                                       <div style="background: url(pict/tz03.jpg);background-size: cover;"></div>
+                                   </div>
+                                   <div class="lz">
+                                       <p><a>du梓豪</a></p>
+                                       <p>今天 16:27</p>
+                                   </div>
+                                </li>
+                                <li>
+                                   <h1><a>蜘蛛侠吧</a></h1> 
+                                   <div class="bt">
+                                       <p><a>【电影】《毒液2：屠杀开始》改档延期1年</a></p>
+                                       <div>
+                                            <p>53</p>
+                                            <p></p>
+                                            <p></p>    
+                                       </div>  
+                                   </div>
+                                   <p>
+                                       《毒液2：屠杀开始》改档延期1年，今年将只有1部漫威电影今天各有一个好消息和坏消息，好消息是《毒液2》官方终于曝光了完整标题《Venom：Let There Be Carnage》，不过电影同时也宣布档期延后，推迟到明年也就是2021年6月25日，接替原本的《蝙蝠侠》档期。
+                                   </p>
+                                   <div class="tp">
+                                       <div style="background: url(pict/tz04.jpg);background-size: cover;"></div>
+                                       <div style="background: url(pict/tz05.jpg);background-size: cover;"></div>
+                                       <div style="background: url(pict/tz06.jpg);background-size: cover;"></div>
+                                   </div>
+                                   <div class="lz">
+                                       <p><a>漫威英雄基地</a></p>
+                                       <p>今天 12:49</p>
+                                   </div>
+                                </li>
+                                <li>
+                                   <h1><a>贴吧热议吧</a></h1> 
+                                   <div class="bt">
+                                       <p><a>【数码】苹果或在今年晚些时候推出11英寸iPad Air</a></p>
+                                      <div>
+                                            <p>135</p>
+                                            <p></p>
+                                            <p></p>    
+                                       </div>  
+                                   </div>
+                                   <p>近日据我国台湾媒体报道，苹果公司计划在今年晚些时候推出23英寸iMac以及11英寸iPad Air，新款iPad Air尺寸增大到近11英寸。你买ipad了吗？</p>
+                                   <div class="tp">
+                                       <div style="background: url(pict/tz07.jpg);background-size: cover;"></div>
+                                       <div style="background: url(pict/tz08.jpg);background-size: cover;"></div>
+                                   </div>
+                                   <div class="lz">
+                                       <p><a>LIOR-</a></p>
+                                       <p>48分钟之前</p>
+                                   </div>
+                                </li>
+                                <li>
+                                   <h1><a>oricon吧</a></h1> 
+                                   <div class="bt">
+                                       <p><a>【娱乐】据日媒报道女星北川景子已怀孕</a></p>
+                                       <div>
+                                            <p>270</p>
+                                            <p></p>
+                                            <p></p>    
+                                       </div>  
+                                   </div>
+                                   <p>4月22日，据日媒报道，日本女星北川景子已怀孕，目前进入稳定期，预产期今年秋天。据悉，北川景子2003年凭借《美少女战士》中火野丽一角正式出道，后续参演的作品有《间宫兄弟》、《抹布女孩》、《太阳与海的教室》、《卖房子的女人的逆袭》等。2016年1月北川景子与已故日本前首相竹下登外孙──摇滚歌手DAIGO结婚。DAIGO系日本艺人，担任摇滚乐团BREAKERZ的主唱。当时年长9岁的DAIGO被问到想要几个孩子时，做出摇滚的手势表示想要3个左右。</p>
+                                   <div class="tp">
+                                       <div style="background: url(pict/tz09.jpg);background-size: cover;"></div>
+                                       <div style="background: url(pict/tz10.jpg);background-size: cover;"></div>
+                                       <div style="background: url(pict/tz11.jpg);background-size: cover;"></div>
+                                   </div>
+                                   <div class="lz">
+                                       <p><a>帝皇飞腾</a></p>
+                                       <p>5分钟之前</p>
+                                   </div>
+                                </li>
+                                <li>
+                                   <h1><a>steam吧</a></h1> 
+                                   <div class="bt">
+                                       <p><a>【文化】真的震惊！上初中的侄子没读过《三国演义》</a></p>
+                                       <div>
+                                            <p>125</p>
+                                            <p></p>
+                                            <p></p>
+                                       </div> 
+                                   </div>
+                                   <p>现在的孩子阅读量都这么差了么？清明节带着电脑回老家，侄子吵着要玩我电脑，我寻思我最早电脑启蒙就是串门去大爷家看我哥玩红警，他想玩就给他玩了，不过楼主电脑里没吃鸡，给他调了个真三国无双7玩，结果现在小孩子（初一了）连三国都没看过的么</p>
+                                   <div class="tp">
+                                       <div style="background: url(pict/tz12.jpg);background-size: cover;"></div>
+                                       <div style="background: url(pict/tz13.jpg);background-size: cover;"></div>
+                                   </div>
+                                   <div class="lz">
+                                       <p><a>雾雨纱织</a></p>
+                                       <p>今天 14:57</p>
+                                   </div>
+                                </li>
+                                <li>
+                                   <h1><a>广东移动吧</a></h1> 
+                                   <div class="bt">
+                                       <p><a>【科技】中国移动5G信号将覆盖珠穆朗玛峰峰顶</a></p>
+                                       <div>
+                                            <p>218</p>
+                                            <p></p>
+                                            <p></p>
+                                       </div>  
+                                   </div>
+                                   <p>5G上珠峰 再续新传奇|中国移动5G信号将覆盖珠峰峰顶</p>
+                                   <div class="tp">
+                                       <div style="background: url(pict/tz14.jpg);background-size: cover;"></div>
+                                       <div style="background: url(pict/tz15.jpg);background-size: cover;"></div>
+                                       <div style="background: url(pict/tz16.jpg);background-size: cover;"></div>
+                                   </div>
+                                   <div class="lz">
+                                       <p><a>飘羽的翅膀</a></p>
+                                       <p>14分钟之前</p>
+                                   </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="side">
+                        <div class="saoma">
+                            <h1>扫二维码下载贴吧客户端</h1>
+                            <img src="pict/二维码.png">
+                        </div>
+                        <div class="phb">
+                            <h1>贴吧热议榜<a>查看榜单</a></h1>
+                            <ul class="bd">
+                                <li><p class="hot">1</p><a href="">美国部分州准备解除限制</a><p>2023909</p></li>
+                                <li><p class="hot">2</p><a href="">柯洁陷女权争议</a><p>1739779</p></li>
+                                <li><p class="hot">3</p><a href="">王思聪开撕阿水表哥</a><p>1494102</p></li>
+                                <li><p>4</p><a href="">屈楚萧被曝殴打前女友</a><p>1378679</p></li>
+                                <li><p>5</p><a href="">三部漫威新片改档</a><p>993670</p></li>
+                                <li><p>6</p><a href="">林允连线周星驰</a><p>831483</p></li>
+                                <li><p>7</p><a href="">罗志祥再次发文道歉</a><p>758062</p></li>
+                                <li><p>8</p><a href="">郭采洁起诉造谣者</a><p>701347</p></li>
+                                <li><p>9</p><a href="">最高法要求严禁歧视湖北籍劳动者</a><p>578451</p></li>
+                                <li><p>10</p><a href="">乱世佳人译者陈良廷去世</a><p>566395</p></li>
+                            </ul>
+                        </div>
+                        <div class="tbyl">
+                            <h1>贴吧娱乐<a>合作沟通</a></h1>
+                            <img src="pict/唐人街探案3.png">
+                            <ul class="xzt">
+                                <li><a href="">杨紫工作室状告黑粉</a></li>
+                                <li><a href="">屈楚萧否认恋情</a></li>
+                                <li><a href="">霉霉取消演唱会</a></li>
+                            </ul>
+                        </div>
+                        <div class="ggb">
+                            <h1>公告板</h1>
+                            <img src="pict/公告.png">
+                            <ul class="xzt">
+                                <li><a href="">百度贴吧保护野生动植物专项行动公告</a></li>
+                                <li><a href="">公安部“净网2020”专项行动全面展开</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script type="text/javascript">
+        new Vue({
+            el:'.lbtt',
+            data : {
+                mark: 0, //比对图片索引的变量
+                timer:null,
+                imgs: [
+                    'pict/lb01.png',
+                    'pict/lb02.jpg',
+                    'pict/lb03.png',
+                    'pict/lb04.png',
+                    'pict/lb05.png'
+                ]
+            },
+            methods:{
+                next(){
+                    this.mark++
+                    if (this.mark==5) {
+                        this.mark=0
+                    }
+                },
+                previous(){
+                    this.mark--
+                    if (this.mark==-1) {
+                        this.mark=4
+                    }
+                },
+                autoplay(){
+                    this.timer=setInterval(this.next,3000)
+                },
+                change(i){
+                    this.mark=i
+                },
+                stop(){
+                    clearInterval(this.timer)
+                },
+                start(){
+                    this.autoplay()
+                }
+            },  
+            created(){
+                this.autoplay()
+            }                                                        
+        })
+    </script>
+    </div>
+</body>
+</html>
+
+
